@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bduopfow0rxle"]
+
+[ext_resource type="FontFile" uid="uid://d16uu046fuete" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_3xmdk"]
+[ext_resource type="Script" uid="uid://fchw2pqrx4rm" path="res://scripts/textbox.gd" id="1_g5d5p"]
+[ext_resource type="FontFile" uid="uid://c7xy4paap8pl2" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8.ttf" id="2_g5d5p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nsew3"]
+bg_color = Color(0.7529412, 0.5176471, 0.34117648, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.6745098, 0.40392157, 0.1882353, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Textbox" type="CanvasLayer" groups=["gestore_dialoghi"]]
+script = ExtResource("1_g5d5p")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -290.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 76
+theme_override_constants/margin_top = -63
+theme_override_constants/margin_right = 76
+theme_override_constants/margin_bottom = 69
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nsew3")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 60
+
+[node name="Panel" type="Panel" parent="TextboxContainer/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="start" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("1_3xmdk")
+theme_override_font_sizes/font_size = 56
+text = "*"
+
+[node name="Label" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_3xmdk")
+theme_override_font_sizes/font_size = 40
+text = "TEXT"
+autowrap_mode = 3
+clip_text = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="end" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_g5d5p")
+theme_override_font_sizes/font_size = 56
+text = "V"

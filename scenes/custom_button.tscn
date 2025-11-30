@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://doh0ccflj0mjw"]
+
+[ext_resource type="FontFile" uid="uid://d16uu046fuete" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_ql6db"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfr1r"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32hcy"]
+bg_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt7k8"]
+bg_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw48a"]
+
+[node name="CustomButton" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -106.34787
+offset_top = -28.0
+offset_right = 106.34787
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_ql6db")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_bfr1r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_32hcy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt7k8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qw48a")
+text = "Text"

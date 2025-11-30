@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddxk3bjqr6u0u"]
+
+[ext_resource type="FontFile" uid="uid://d16uu046fuete" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="1_6bcno"]
+[ext_resource type="Script" uid="uid://csfwfvcd87my0" path="res://scripts/game_over.gd" id="1_qae0b"]
+[ext_resource type="StyleBox" uid="uid://5fq8jcmyv0v2" path="res://scenes/GameOver_style.tres" id="2_vuicl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bfr1r"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32hcy"]
+bg_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt7k8"]
+bg_color = Color(0.69135684, 0.6913568, 0.69135684, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.405)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qw48a"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qae0b")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.39215687)
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.5
+offset_top = -231.5
+offset_right = 190.5
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_vuicl")
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_6bcno")
+theme_override_font_sizes/font_size = 32
+text = "
+GAME OVER"
+horizontal_alignment = 1
+
+[node name="Retry" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.437
+anchor_right = 0.5
+anchor_bottom = 0.437
+offset_left = -121.0
+offset_top = -24.960022
+offset_right = 120.0
+offset_bottom = 24.039978
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6bcno")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_bfr1r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_32hcy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt7k8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qw48a")
+text = "Ricomincia"
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.541
+anchor_right = 0.5
+anchor_bottom = 0.541
+offset_left = -119.0
+offset_top = -25.28003
+offset_right = 119.0
+offset_bottom = 24.71997
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_6bcno")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_bfr1r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_32hcy")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yt7k8")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qw48a")
+text = "Menu Principale"
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
