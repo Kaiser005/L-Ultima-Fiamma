@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://pvplkcamyoky"]
+[gd_scene format=3 uid="uid://pvplkcamyoky"]
 
 [ext_resource type="Script" uid="uid://bmtyv5nnxox1k" path="res://scripts/npc_stregone.gd" id="1_kyafp"]
 [ext_resource type="Texture2D" uid="uid://gpwsa6saxu2d" path="res://assets/brackeys_platformer_assets/sprites/miei sprite/stregone nuovo.png" id="1_vco6m"]
@@ -102,10 +102,10 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_004du"]
 size = Vector2(38, 36)
 
-[node name="StaticBody2D" type="StaticBody2D" groups=["gestore_dialoghi"]]
+[node name="npc_stregone" type="StaticBody2D" unique_id=766050002 groups=["gestore_dialoghi"]]
 script = ExtResource("1_kyafp")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=103138726]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_fept3")
 animation = &"Idle"
@@ -113,20 +113,22 @@ autoplay = "Idle"
 frame = 4
 frame_progress = 0.76829016
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=453173257]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ebkhx")
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2049945886]
 light_mask = 3
 visibility_layer = 3
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1822329625]
 position = Vector2(0, -18)
 shape = SubResource("RectangleShape2D_004du")
 
-[node name="Interaction_key" type="Label" parent="."]
+[node name="Interaction_key" type="Label" parent="." unique_id=706556981]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 offset_left = -11.0
 offset_top = -24.0
 offset_right = 10.0

@@ -6,7 +6,7 @@ extends CanvasLayer
 @onready var end: Label = $TextboxContainer/MarginContainer/HBoxContainer/end
 const char_read_rate = 0.03
 var tween: Tween
-
+var change_level_on_finish: bool = false
 enum State{
 	READY,
 	READING,
@@ -19,13 +19,14 @@ var text_queue = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	hide_textbox()
+	
 
 func _process(_delta: float) -> void:
 	match current_state:
 		State.READY:
 			if !text_queue.is_empty():
 				change_state(State.READING)
-				print("TEXTBOX: Coda piena, inizio a leggere!")
+				#print("TEXTBOX: Coda piena, inizio a leggere!")
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept"):
 				label.visible_ratio = 1.0
@@ -34,17 +35,28 @@ func _process(_delta: float) -> void:
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
-				hide_textbox()
+				if text_queue.is_empty():
+					hide_textbox()
+					get_tree().call_group("player", "unfreeze")
+				else:
+					pass
 
 func queue_text(next_text):
 	text_queue.push_back(next_text)
-	print("TEXTBOX: Ho ricevuto il messaggio -> ", next_text)
+	#print("TEXTBOX: Ho ricevuto il messaggio -> ", next_text)
+
+func set_next_level_trigger(value: bool):
+	change_level_on_finish = value
 
 func hide_textbox(): 
 	textbox.hide()
 	start.text = ""
 	label.text = ""
 	end.text = ""
+	
+	if change_level_on_finish == true:
+		change_level_on_finish = false
+		GameManager.go_to_menu()
 
 func show_textbox():
 	textbox.show()
@@ -58,7 +70,7 @@ func display_text():
 	tween = create_tween()
 	tween.tween_property(label, "visible_ratio", 1.0, len(next_text) * char_read_rate)
 	tween.connect("finished", on_tween_finished)
-	print("TEXTBOX: Mostro il box e il testo")
+	#print("TEXTBOX: Mostro il box e il testo")
 	
 func on_tween_finished():
 	end.text = "v"

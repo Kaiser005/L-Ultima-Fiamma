@@ -10,10 +10,23 @@ signal player_died
 # Costanti per la morte
 const DEATH_JUMP_VELOCITY = -300.0 # Quanto in alto salta alla morte (negativo = su)
 const GRAVITY = 980.0 # O usa la tua gravità di progetto
-
+var can_move: bool = true
 var is_dead = false
 
+
+
 func _physics_process(delta: float) -> void:
+		# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	
+	if can_move == false:
+		velocity.x = 0
+		velocity.y = 0
+		move_and_slide()
+		return
+	
+	
 	# Se il giocatore è morto, gestisci solo la caduta
 	if is_dead:
 		# Applica la gravità
@@ -23,9 +36,7 @@ func _physics_process(delta: float) -> void:
 		position.y += velocity.y * delta
 		return # Non eseguire il codice di movimento normale
 
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -54,6 +65,19 @@ func _physics_process(delta: float) -> void:
 	
 
 	move_and_slide()
+	
+
+func freeze():
+	can_move = false
+	animated_sprite_2d.play("idle")
+	print("mi hanno detto di fermarmi")
+	velocity.x = 0
+	velocity.y = 0
+	
+func unfreeze():
+	can_move = true
+
+
 func die() -> void:
 	# Assicurati che questa funzione venga eseguita solo una volta
 	if is_dead:
@@ -66,7 +90,7 @@ func die() -> void:
 	animated_sprite_2d.play("jump")
 	
 	# Disabilita le collisioni per poter "cadere dalla mappa"
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.set_deferred("disabled", true)
 	
 	# Applica l'impulso del salto di morte
 	velocity.y = DEATH_JUMP_VELOCITY

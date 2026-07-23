@@ -5,8 +5,6 @@ extends Node2D
 @onready var game_over_screen: Control = $GameOver/GameOver
 
 func _ready() -> void:
-	# Nascondi la schermata di Game Over all'avvio
-	game_over_screen.hide()
 	
 	# Collega il segnale 'player_died' che abbiamo creato nel player
 	# a una nuova funzione in questo script

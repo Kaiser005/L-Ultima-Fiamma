@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://dohlkebql4a3k"]
+
+[ext_resource type="StyleBox" uid="uid://5fq8jcmyv0v2" path="res://scenes/GameOver_style.tres" id="1_2l6cc"]
+[ext_resource type="FontFile" uid="uid://d16uu046fuete" path="res://assets/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_e41g7"]
+[ext_resource type="PackedScene" uid="uid://doh0ccflj0mjw" path="res://scenes/custom_button.tscn" id="3_0lrm4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_left = 756.125
+offset_top = 329.5
+offset_right = 1163.125
+offset_bottom = 750.5
+theme_override_styles/panel = ExtResource("1_2l6cc")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_e41g7")
+theme_override_font_sizes/font_size = 32
+text = "HAI VINTO!"
+horizontal_alignment = 1
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="NextLevel" parent="PanelContainer/Panel" instance=ExtResource("3_0lrm4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.37600002
+anchor_bottom = 0.37600002
+offset_left = -127.1875
+offset_top = -25.796005
+offset_right = 127.1875
+offset_bottom = 26.203995
+text = "Prossimo Livello"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Quit" parent="PanelContainer/Panel" instance=ExtResource("3_0lrm4")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.638
+anchor_bottom = 0.638
+offset_left = -127.1875
+offset_top = -25.95401
+offset_right = 127.1875
+offset_bottom = 26.04599
+text = "Menu Principale"
+icon_alignment = 1
+vertical_icon_alignment = 0
