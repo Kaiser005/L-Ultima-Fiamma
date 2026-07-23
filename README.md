@@ -97,4 +97,4 @@ Il **codice** di questo progetto è stato scritto da me.
 Gli **asset grafici e audio** provengono da pack, siti di risorse e tutorial di terzi. Di seguito le fonti: https://brackeysgames.itch.io/brackeys-platformer-bundle
 
 
-> ℹ Questi asset appartengono ai rispettivi autori e sono usati secondo le loro licenze. Non sono di mia proprietà. Se sei l'autore di una risorsa e desideri una correzione nell'attribuzione, apri una issue.
+> ℹ Questi asset appartengono ai rispettivi autori e sono usati secondo le loro licenze. Non sono di mia proprietà.
