@@ -46,13 +46,11 @@ Raccogli le monete sparse nel livello, evita lo slime e raggiungi lo stregone pe
 
 | Azione | Tasto |
 |---|---|
-| Muoviti a sinistra / destra | [INSERISCI I TASTI — es. A / D o frecce] |
-| Salta | [INSERISCI IL TASTO — es. Spazio] |
-| Interagisci con l'NPC | [INSERISCI IL TASTO — es. E] |
-| Pausa / Indietro | [INSERISCI IL TASTO — es. Esc] |
-| Avanza nei dialoghi | [INSERISCI IL TASTO — es. Invio / Spazio] |
-
-> I tasti esatti sono definiti nella mappa di input del progetto (Progetto → Impostazioni progetto → Mappa di input). Controlla lì e compila la tabella.
+| Muoviti a sinistra / destra | [A / D o frecce] |
+| Salta | [Spazio o Freccia Su] |
+| Interagisci con l'NPC | [E] |
+| Pausa / Indietro | [Esc] |
+| Avanza nei dialoghi | [Invio / Spazio] |
 
 ---
 
@@ -86,7 +84,7 @@ Il codice è organizzato in script con responsabilità separate:
 
 ## Tecnologie
 
-- **Motore:** Godot Engine 4.x
+- **Motore:** Godot Engine 4.5
 - **Linguaggio:** GDScript
 - **Versionamento:** Git / GitHub
 
